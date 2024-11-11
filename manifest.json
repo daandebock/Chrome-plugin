@@ -1,0 +1,11 @@
+{
+    "name": "Daan De Bock",
+    "version": "1.0.0",
+    "description": "Testing",
+    "manifest_version": 3,
+    "author": "Daan De Bock",
+    "action": {
+        "default_popup": "index.html",
+        "default_title": "Daan De Bock"
+    }
+}
