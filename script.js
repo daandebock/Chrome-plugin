@@ -1,5 +1,6 @@
 const quoteDom = document.querySelector("#quote");
 const button = document.querySelector("button");
+let start = 0;
 const quotes = [
   {
     quote: '"Ik zeg het niet vaak, ik zeg het niet veel"',
@@ -22,17 +23,34 @@ class Beauke {
     quoteDom.innerHTML = "";
     const p = document.createElement("p");
     const img = document.createElement("img");
+    const div = document.createElement("div");
     p.innerText = this.quote;
     img.setAttribute("src", this.img);
-    quoteDom.appendChild(img);
-    quoteDom.appendChild(p);
+    div.appendChild(img);
+    div.appendChild(p);
+    div.classList.toggle("slide--right");
+    quoteDom.appendChild(div);
+  }
+  toDom2() {
+    const appendedDom = document.querySelector("#quote div");
+    appendedDom.classList.remove("slide--right");
+    appendedDom.classList.add("slide--left");
   }
 }
 
+function append() {}
 button.addEventListener("click", handleClick);
 function handleClick() {
   const rand = Math.floor(Math.random() * quotes.length);
   console.log(rand);
   const beau = new Beauke(quotes[rand].quote, quotes[rand].img);
-  beau.toDom();
+  if (start === 0) {
+    beau.toDom();
+    start = 1;
+  } else {
+    beau.toDom2();
+    setTimeout(() => {
+      beau.toDom(); // update using toDom after 2 seconds
+    }, 1500);
+  }
 }

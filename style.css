@@ -44,3 +44,20 @@ button {
     border:none;
     padding:1rem;
 }
+.slide--left{
+    animation: slide 2000ms linear;
+
+}
+.slide--right{
+    animation: slider 1000ms ease-in-out;
+
+}
+@keyframes slide {
+    from {transform: translateX(0);}
+    to {transform: translateX(1000px);}
+  }
+
+  @keyframes slider {
+    from {transform: translateX(-1000px);}
+    to {transform: translateX(0);}
+  }
